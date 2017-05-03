@@ -70,7 +70,6 @@ public class MST {
 				a=PQX.deleteMin();
 				v2=a.v2;
 			}
-			//result.add(a);
 			//Find the partial tree PTY to which v2 belongs.
 			//Remove PTY from the partial tree list L.
 			//Let PQY be PTY's priority queue.
@@ -88,8 +87,8 @@ public class MST {
 			{
 				PQX.getMin();
 			}catch(Exception e)
-			{       //System.out.println("caught Exception");
-		     		break;
+			{       
+				break;
 			}
 			PTX.merge(PTY);
 			ptlist.append(PTX);
@@ -97,8 +96,6 @@ public class MST {
 			
 			
 		}
-		
-		//System.out.println("returning/////");
 		return result;
 	}
 	
@@ -107,16 +104,12 @@ public class MST {
 		Graph g = new Graph("graph3.txt");
 		PartialTreeList t=MST.initialize(g);
 		Iterator<PartialTree> i=t.iterator();
-		/*while(i.hasNext())
-		{
-			System.out.println(i.next().toString());
-		}*/
 		ArrayList<PartialTree.Arc> a = MST.execute(t);
 		for(PartialTree.Arc b : a)
 		{
 			System.out.println(b.toString());
 		}
-		//ArrayList<PartialTree.Arc> a = MST.execute(t);
+		ArrayList<PartialTree.Arc> a = MST.execute(t);
 		
 	}  
 	
